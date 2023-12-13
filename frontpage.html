@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <style>
+        a{text-decoration-line: none;margin: 100px;color: aliceblue;}
+        /* button{background-color: rgb(180, 47, 169);} */
+        /* #coloring{background-color: rgb(197, 105, 69);} */
+        #coloring1{background-color:rgb(161, 149, 145)}
+        #coloring2{background-color: rgb(223, 105, 105);}
+        #coloring3{background-color: rgb(113, 192, 166);}
+    </style>
+</head>
+<body style="background-color: rgb(161, 209, 209);">
+    <center><h1>API-STORE</h1></center>    
+    <nav >
+
+    </nav>
+    
+
+    <div style="width: 1350px;height: 50px;background-color: rgb(139, 144, 148);text-align: center;display: flex;justify-content: center;align-items: center;margin-top: 60px;">
+        <button style="background-color: blueviolet;padding: 10px;font-size: 14px;">Full-LIst</button>
+        <button style="background-color: blueviolet;padding: 10px;font-size: 14px;margin-left: 40px;">Men's Clothing</button>
+        <button style="background-color: rgb(250, 245, 245);padding: 10px;font-size: 14px;">CART</button>
+        <button style="background-color: blueviolet;padding: 10px;font-size: 14px;margin-left: 70px;">Jewelery</button>
+        <button style="background-color: blueviolet;padding: 10px;font-size: 14px;margin-left: 100px;">Electronics</button>
+        <button style="background-color: blueviolet;padding: 10px;font-size: 14px;margin-left: 170px;">Women's Clothing</button>
+        <button style="background-color: rgb(238, 242, 243);padding:10px;font-size:14px;margin-left:1150px;" id="logout">LOGOUT</button>
+        
+    </div>
+
+    <div class="bigbox">
+    <ul> </ul> </div>
+    <div class="bigbox1">
+    <ul> </ul> </div>
+    <div class="bigbox2"><ul></ul></div>
+    <div class="bigbox3"><ul></ul></div>
+    <div class="bigbox4"><ul></ul></div>
+
+
+    <div class="smallbox1"></div>
+    <div class="smallbox2"></div>
+    <div class="smallbox3"></div>
+    <div class="smallbox4"></div>
+    <div class="smallbox5"></div>
+    <div class="smallbox6"></div>
+    
+    <div class="smallbox1"></div>
+<script>
+ arr=[{"id":1,"title":"Fjallraven - Foldsack No.1 Backpack, Fits 15 Laptops","price":109.95,"description":"Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday","category":"men's clothing","image":"https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg","rating":{"rate":3.9,"count":120}},
+    {"id":2,"title":"Mens Casual Premium Slim Fit T-Shirts ","price":22.3,"description":"Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.","category":"men's clothing","image":"https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg","rating":{"rate":4.1,"count":259}},
+    {"id":3,"title":"Mens Cotton Jacket","price":55.99,"description":"great outerwear jackets for Spring/Autumn/Winter, suitable for many occasions, such as working, hiking, camping, mountain/rock climbing, cycling, traveling or other outdoors. Good gift choice for you or your family member. A warm hearted love to Father, husband or son in this thanksgiving or Christmas Day.","category":"men's clothing","image":"https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg","rating":{"rate":4.7,"count":500}},
+    {"id":4,"title":"Mens Casual Slim Fit","price":15.99,"description":"The color could be slightly different between on the screen and in practice. / Please note that body builds vary by person, therefore, detailed size information should be reviewed below on the product description.","category":"men's clothing","image":"https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg","rating":{"rate":2.1,"count":430}},
+    {"id":5,"title":"John Hardy Women's Legends Naga Gold & Silver Dragon Station Chain Bracelet","price":695,"description":"From our Legends Collection, the Naga was inspired by the mythical water dragon that protects the ocean's pearl. Wear facing inward to be bestowed with love and abundance, or outward for protection.","category":"jewelery","image":"https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg","rating":{"rate":4.6,"count":400}},
+    {"id":6,"title":"Solid Gold Petite Micropave ","price":168,"description":"Satisfaction Guaranteed. Return or exchange any order within 30 days.Designed and sold by Hafeez Center in the United States. Satisfaction Guaranteed. Return or exchange any order within 30 days.","category":"jewelery","image":"https://fakestoreapi.com/img/61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg","rating":{"rate":3.9,"count":70}},
+    {"id":7,"title":"White Gold Plated Princess","price":9.99,"description":"Classic Created Wedding Engagement Solitaire Diamond Promise Ring for Her. Gifts to spoil your love more for Engagement, Wedding, Anniversary, Valentine's Day...","category":"jewelery","image":"https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg","rating":{"rate":3,"count":400}},
+    {"id":8,"title":"Pierced Owl Rose Gold Plated Stainless Steel Double","price":10.99,"description":"Rose Gold Plated Double Flared Tunnel Plug Earrings. Made of 316L Stainless Steel","category":"jewelery","image":"https://fakestoreapi.com/img/51UDEzMJVpL._AC_UL640_QL65_ML3_.jpg","rating":{"rate":1.9,"count":100}},
+    {"id":9,"title":"WD 2TB Elements Portable External Hard Drive - USB 3.0 ","price":64,"description":"USB 3.0 and USB 2.0 Compatibility Fast data transfers Improve PC Performance High Capacity; Compatibility Formatted NTFS for Windows 10, Windows 8.1, Windows 7; Reformatting may be required for other operating systems; Compatibility may vary depending on user’s hardware configuration and operating system","category":"electronics","image":"https://fakestoreapi.com/img/61IBBVJvSDL._AC_SY879_.jpg","rating":{"rate":3.3,"count":203}},{"id":10,"title":"SanDisk SSD PLUS 1TB Internal SSD - SATA III 6 Gb/s","price":109,"description":"Easy upgrade for faster boot up, shutdown, application load and response (As compared to 5400 RPM SATA 2.5” hard drive; Based on published specifications and internal benchmarking tests using PCMark vantage scores) Boosts burst write performance, making it ideal for typical PC workloads The perfect balance of performance and reliability Read/write speeds of up to 535MB/s/450MB/s (Based on internal testing; Performance may vary depending upon drive capacity, host device, OS and application.)","category":"electronics","image":"https://fakestoreapi.com/img/61U7T1koQqL._AC_SX679_.jpg","rating":{"rate":2.9,"count":470}},{"id":11,"title":"Silicon Power 256GB SSD 3D NAND A55 SLC Cache Performance Boost SATA III 2.5","price":109,"description":"3D NAND flash are applied to deliver high transfer speeds Remarkable transfer speeds that enable faster bootup and improved overall system performance. The advanced SLC Cache Technology allows performance boost and longer lifespan 7mm slim design suitable for Ultrabooks and Ultra-slim notebooks. Supports TRIM command, Garbage Collection technology, RAID, and ECC (Error Checking & Correction) to provide the optimized performance and enhanced reliability.","category":"electronics","image":"https://fakestoreapi.com/img/71kWymZ+c+L._AC_SX679_.jpg","rating":{"rate":4.8,"count":319}},{"id":12,"title":"WD 4TB Gaming Drive Works with Playstation 4 Portable External Hard Drive","price":114,"description":"Expand your PS4 gaming experience, Play anywhere Fast and easy, setup Sleek design with high capacity, 3-year manufacturer's limited warranty","category":"electronics","image":"https://fakestoreapi.com/img/61mtL65D4cL._AC_SX679_.jpg","rating":{"rate":4.8,"count":400}},{"id":13,"title":"Acer SB220Q bi 21.5 inches Full HD (1920 x 1080) IPS Ultra-Thin","price":599,"description":"21. 5 inches Full HD (1920 x 1080) widescreen IPS display And Radeon free Sync technology. No compatibility for VESA Mount Refresh Rate: 75Hz - Using HDMI port Zero-frame design | ultra-thin | 4ms response time | IPS panel Aspect ratio - 16: 9. Color Supported - 16. 7 million colors. Brightness - 250 nit Tilt angle -5 degree to 15 degree. Horizontal viewing angle-178 degree. Vertical viewing angle-178 degree 75 hertz","category":"electronics","image":"https://fakestoreapi.com/img/81QpkIctqPL._AC_SX679_.jpg","rating":{"rate":2.9,"count":250}},{"id":14,"title":"Samsung 49-Inch CHG90 144Hz Curved Gaming Monitor (LC49HG90DMNXZA) – Super Ultrawide Screen QLED ","price":999.99,"description":"49 INCH SUPER ULTRAWIDE 32:9 CURVED GAMING MONITOR with dual 27 inch screen side by side QUANTUM DOT (QLED) TECHNOLOGY, HDR support and factory calibration provides stunningly realistic and accurate color and contrast 144HZ HIGH REFRESH RATE and 1ms ultra fast response time work to eliminate motion blur, ghosting, and reduce input lag","category":"electronics","image":"https://fakestoreapi.com/img/81Zt42ioCgL._AC_SX679_.jpg","rating":{"rate":2.2,"count":140}},{"id":15,"title":"BIYLACLESEN Women's 3-in-1 Snowboard Jacket Winter Coats","price":56.99,"description":"Note:The Jackets is US standard size, Please choose size as your usual wear Material: 100% Polyester; Detachable Liner Fabric: Warm Fleece. Detachable Functional Liner: Skin Friendly, Lightweigt and Warm.Stand Collar Liner jacket, keep you warm in cold weather. Zippered Pockets: 2 Zippered Hand Pockets, 2 Zippered Pockets on Chest (enough to keep cards or keys)and 1 Hidden Pocket Inside.Zippered Hand Pockets and Hidden Pocket keep your things secure. Humanized Design: Adjustable and Detachable Hood and Adjustable cuff to prevent the wind and water,for a comfortable fit. 3 in 1 Detachable Design provide more convenience, you can separate the coat and inner as needed, or wear it together. It is suitable for different season and help you adapt to different climates","category":"women's clothing","image":"https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg","rating":{"rate":2.6,"count":235}},{"id":16,"title":"Lock and Love Women's Removable Hooded Faux Leather Moto Biker Jacket","price":29.95,"description":"100% POLYURETHANE(shell) 100% POLYESTER(lining) 75% POLYESTER 25% COTTON (SWEATER), Faux leather material for style and comfort / 2 pockets of front, 2-For-One Hooded denim style faux leather jacket, Button detail on waist / Detail stitching at sides, HAND WASH ONLY / DO NOT BLEACH / LINE DRY / DO NOT IRON","category":"women's clothing","image":"https://fakestoreapi.com/img/81XH0e8fefL._AC_UY879_.jpg","rating":{"rate":2.9,"count":340}},{"id":17,"title":"Rain Jacket Women Windbreaker Striped Climbing Raincoats","price":39.99,"description":"Lightweight perfet for trip or casual wear---Long sleeve with hooded, adjustable drawstring waist design. Button and zipper front closure raincoat, fully stripes Lined and The Raincoat has 2 side pockets are a good size to hold all kinds of things, it covers the hips, and the hood is generous but doesn't overdo it.Attached Cotton Lined Hood with Adjustable Drawstrings give it a real styled look.","category":"women's clothing","image":"https://fakestoreapi.com/img/71HblAHs5xL._AC_UY879_-2.jpg","rating":{"rate":3.8,"count":679}},{"id":18,"title":"MBJ Women's Solid Short Sleeve Boat Neck V ","price":9.85,"description":"95% RAYON 5% SPANDEX, Made in USA or Imported, Do Not Bleach, Lightweight fabric with great stretch for comfort, Ribbed on sleeves and neckline / Double stitching on bottom hem","category":"women's clothing","image":"https://fakestoreapi.com/img/71z3kpMAYsL._AC_UY879_.jpg","rating":{"rate":4.7,"count":130}},{"id":19,"title":"Opna Women's Short Sleeve Moisture","price":7.95,"description":"100% Polyester, Machine wash, 100% cationic polyester interlock, Machine Wash & Pre Shrunk for a Great Fit, Lightweight, roomy and highly breathable with moisture wicking fabric which helps to keep moisture away, Soft Lightweight Fabric with comfortable V-neck collar and a slimmer fit, delivers a sleek, more feminine silhouette and Added Comfort","category":"women's clothing","image":"https://fakestoreapi.com/img/51eg55uWmdL._AC_UX679_.jpg","rating":{"rate":4.5,"count":146}},{"id":20,"title":"DANVOUY Womens T Shirt Casual Cotton Short","price":12.99,"description":"95%Cotton,5%Spandex, Features: Casual, Short Sleeve, Letter Print,V-Neck,Fashion Tees, The fabric is soft and has some stretch., Occasion: Casual/Office/Beach/School/Home/Street. Season: Spring,Summer,Autumn,Winter.","category":"women's clothing","image":"https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_.jpg","rating":{"rate":3.6,"count":145}}]
+   
+    
+    
+
+        var btn1=document.getElementsByTagName("button");
+        btn1[0].style.position="absolute";
+        btn1[0].style.left="100px";
+        // btn1[0].addEventListener('click',()=>{
+    var div1=document.getElementsByClassName("bigbox");
+    div1[0].style.position="absolute";
+    div1[0].style.top="230px";
+    div1[0].style.width="1000px";
+    div1[0].style.border="2px solid black";
+    var ul1=document.getElementsByTagName("ul");
+
+arr.filter((val,ind,arr)=>{
+    var li1=document.createElement("li");
+        li1.innerText=val.id;
+        ul1[0].appendChild(li1);
+        
+    var li2=document.createElement("li");
+    li2.innerText=val.title;
+        ul1[0].appendChild(li2);
+        var li3=document.createElement("li");
+        li3.innerText=val.price;
+        ul1[0].appendChild(li3);
+        var li4=document.createElement("li");
+        li4.innerText=val.description;
+        ul1[0].appendChild(li4);
+        var li5=document.createElement("li");
+        li5.innerText=val.category;
+        ul1[0].appendChild(li5);
+    var imgcr=document.createElement("img");
+        imgcr.setAttribute("src",val.image);
+        imgcr.style.width="80px";
+        imgcr.style.height="80px";
+        ul1[0].appendChild(imgcr);
+    var hr=document.createElement("hr");
+    ul1[0].appendChild(hr);
+
+        div1[0].appendChild(ul1[0]);
+    div1[0].setAttribute("id","coloring");
+
+    div12=document.getElementsByClassName("smallbox1");
+    div12[0].style.width="334px";
+    div12[0].style.height="4563px";
+    div12[0].style.position="absolute";
+    div12[0].style.top="230px";
+    div12[0].style.left="1020px";
+    div12[0].style.border="2px solid black";
+    div12[0].setAttribute("id","coloring");
+
+    var btn11=document.createElement("button");
+    btn11.innerText="SEE MORE";
+    btn11.style.margin="110px 0px 94px 62px"
+    btn11.setAttribute("id","coloring1");
+    div12[0].appendChild(btn11);
+
+    btn11.addEventListener('click',()=>{
+    window.location.assign("./seemore.html");
+    localStorage.setItem("seemore",JSON.stringify(arr[ind]));
+ })
+
+    var btn12=document.createElement("button");
+    btn12.innerText="Add To Cart";
+    // btn12.style.margin="90px 0 50px 10px";
+    btn12.style.position="relative";
+    btn12.style.top="0px";
+    btn12.style.left="10px";
+    btn12.setAttribute("id","coloring3");
+    div12[0].appendChild(btn12);
+
+
+    btn12.addEventListener('click',()=>{
+        let cartt=localStorage.getItem("cart");
+        cartt!=null?JSON.parse(cartt):[];
+        let cart1=cartt!=null?JSON.parse(cartt):[];
+      
+        cart1.push(arr[ind]);
+        localStorage.setItem("cart",JSON.stringify(cart1));
+    }) 
+
+    
+    var btn13=document.createElement("button");
+    btn13.innerText="BUY NOW";
+    // btn12.style.margin="90px 0 50px 10px";
+    btn13.style.position="relative";
+    btn13.style.top="0px";
+    btn13.style.left="20px";    
+    btn13.setAttribute("id","coloring2");
+    div12[0].appendChild(btn13);
+
+    btn13.addEventListener('click',()=>{
+        window.location.assign("./buynow.html");
+        localStorage.setItem("buynow",JSON.stringify(arr[ind]));
+    
+    }) 
+
+ 
+})
+    // })
+
+    btn1[1].style.position="absolute";
+    btn1[1].style.left="200px";
+
+    var div2=document.getElementsByClassName("bigbox1");
+        div2[0].style.width="1000px";
+        div2[0].style.position="absolute";
+        div2[0].style.top="230px";
+        var ul1=document.getElementsByTagName("ul");
+        btn1[1].addEventListener('click',()=>{
+           
+            var div1=document.getElementsByClassName("bigbox");
+            div1[0].innerHTML="";
+            div1[0].style.border="0px";
+            div12=document.getElementsByClassName("smallbox1");
+            div12[0].innerHTML="";
+            div12[0].style.border="0px";
+
+        
+
+arr.filter((val,ind,arr)=>{
+                 if(val.category== "men's clothing"){
+             var li1=document.createElement("li");
+             li1.innerText=val.id;
+             ul1[0].appendChild(li1);
+
+             var li2=document.createElement("li");
+             li2.innerText=val.title;
+             ul1[0].appendChild(li2);
+
+             var li2=document.createElement("li");
+             li2.innerText=val.category;
+             ul1[0].appendChild(li2);
+
+             var li2=document.createElement("li");
+             li2.innerText=val.price; 
+             ul1[0].appendChild(li2);
+
+             var li2=document.createElement("li");
+             li2.innerText=val.description;
+             ul1[0].appendChild(li2);
+             var imgg=document.createElement("img");
+             imgg.setAttribute("src",val.image);
+             ul1[0].appendChild(imgg);
+             imgg.style.width="100px";
+
+             var hr=document.createElement("hr");
+             ul1[0].appendChild(hr);
+             div2[0].appendChild(ul1[0]);
+             div2[0].style.border="2px solid black";
+
+             div13=document.getElementsByClassName("smallbox2");
+             div13[0].style.width="334px";
+             div13[0].style.height="1090px";
+             div13[0].style.position="absolute";
+             div13[0].style.top="230px";
+             div13[0].style.left="1020px";
+             div13[0].style.border="2px solid black";
+
+    var btn11=document.createElement("button");
+    btn11.innerText="SEE MORE";
+    btn11.setAttribute("id","coloring1");
+    btn11.style.margin="140px 0px 94px 62px"
+    
+    div13[0].appendChild(btn11);
+
+    btn11.addEventListener('click',()=>{
+    window.location.assign("./seemore.html");
+    localStorage.setItem("seemore",JSON.stringify(arr[ind]));
+ })
+
+    var btn14=document.createElement("button");
+    btn14.innerText="Add To Cart";
+    // btn12.style.margin="90px 0 50px 10px";
+    btn14.style.position="relative";
+    btn14.style.top="0px";
+    btn14.style.left="10px";
+    btn14.setAttribute("id","coloring3");
+    div13[0].appendChild(btn14);
+
+
+    btn14.addEventListener('click',()=>{
+        let cartt=localStorage.getItem("cart");
+        cartt!=null?JSON.parse(cartt):[];
+        let cart1=cartt!=null?JSON.parse(cartt):[];
+        cart1.push(arr[ind]);
+        localStorage.setItem("cart",JSON.stringify(cart1));
+    }) 
+
+    
+    var btn15=document.createElement("button");
+    btn15.innerText="BUY NOW";
+    // btn12.style.margin="90px 0 50px 10px";
+    btn15.style.position="relative";
+    btn15.style.top="0px";
+    btn15.style.left="20px";
+    btn15.setAttribute("id","coloring2");
+    div13[0].appendChild(btn15);
+
+    btn15.addEventListener('click',()=>{
+        window.location.assign("./buynow.html");
+        localStorage.setItem("buynow",JSON.stringify(arr[ind]));
+    
+    }) 
+
+ 
+                 }
+                })
+            })
+    
+    btn1[3].style.position="absolute";
+    btn1[3].style.left="340px";
+    
+    var div3=document.getElementsByClassName("bigbox2");
+    div3[0].style.width="1000px";
+    div3[0].style.position="absolute";
+    div3[0].style.top="230px";
+    
+    var ul1=document.getElementsByTagName("ul");
+
+    
+        btn1[3].addEventListener('click',()=>{
+            div3[0].style.border="2px solid black";
+        var div2=document.getElementsByClassName("bigbox1");
+            div2[0].innerHTML="";
+            div2[0].style.display="none";
+        var div13=document.getElementsByClassName("smallbox2");
+            div13[0].innerHTML="";
+            div13[0].style.display="none";
+        var div1=document.getElementsByClassName("bigbox");
+            div1[0].innerHTML="";
+            div1[0].style.border="0px";
+            div12=document.getElementsByClassName("smallbox1");
+            div12[0].innerHTML="";
+            div12[0].style.border="0px";
+
+arr.filter((val,ind,arr)=>{
+    if(val.category== "jewelery"){
+             var li1=document.createElement("li");
+             li1.innerText=val.id;
+             ul1[0].appendChild(li1);
+            
+             var li2=document.createElement("li");
+             li2.innerText=val.title;
+             ul1[0].appendChild(li2);
+
+             var li3=document.createElement("li");
+             li3.innerText=val.category;
+             ul1[0].appendChild(li3);
+
+             var li4=document.createElement("li");
+             li4.innerText=val.price;
+             ul1[0].appendChild(li4);
+
+             var li5=document.createElement("li");
+             li5.innerText=val.description;
+             ul1[0].appendChild(li5);
+        
+             var imgg=document.createElement("img");
+             imgg.setAttribute("src",val.image);
+             ul1[0].appendChild(imgg);
+             imgg.style.width="100px";
+
+             var hr=document.createElement("hr");
+            ul1[0].appendChild(hr)
+
+            div3[0].appendChild(ul1[0]);
+
+        var div14=document.getElementsByClassName("smallbox3");
+            div14[0].style.width="334px";
+            div14[0].style.height="963px";
+            div14[0].style.position="absolute";
+            div14[0].style.top="230px";
+            div14[0].style.left="1020px";
+            div14[0].style.border="2px solid black";
+
+    var btn11=document.createElement("button");
+    btn11.innerText="SEE MORE";
+    btn11.style.margin="120px 0px 94px 62px";
+    btn11.setAttribute("id","coloring1");
+    div14[0].appendChild(btn11);
+
+    btn11.addEventListener('click',()=>{
+    window.location.assign("./seemore.html");
+    localStorage.setItem("seemore",JSON.stringify(arr[ind]));
+ })
+
+    var btn14=document.createElement("button");
+    btn14.innerText="Add To Cart";
+    // btn12.style.margin="90px 0 50px 10px";
+    btn14.style.position="relative";
+    btn14.style.top="0px";
+    btn14.style.left="10px";
+    btn14.setAttribute("id","coloring3");
+    div14[0].appendChild(btn14);
+
+
+    btn14.addEventListener('click',()=>{
+        let cartt=localStorage.getItem("cart");
+        cartt!=null?JSON.parse(cartt):[];
+        let cart1=cartt!=null?JSON.parse(cartt):[];
+        cart1.push(arr[ind]);
+        localStorage.setItem("cart",JSON.stringify(cart1));
+    }) 
+
+    
+    var btn15=document.createElement("button");
+    btn15.innerText="BUY NOW";
+    // btn12.style.margin="90px 0 50px 10px";
+    btn15.style.position="relative";
+    btn15.style.top="0px";
+    btn15.style.left="20px";
+    btn15.setAttribute("id","coloring2");
+    div14[0].appendChild(btn15);
+
+    btn15.addEventListener('click',()=>{
+        window.location.assign("./buynow.html");
+        localStorage.setItem("buynow",JSON.stringify(arr[ind]));
+    
+    }) 
+                 }
+                })
+            })
+
+    btn1[4].style.position="absolute";
+    btn1[4].style.left="450px";
+    
+    var div4=document.getElementsByClassName("bigbox3");
+    div4[0].style.width="1000px";
+    div4[0].style.position="absolute";
+    div4[0].style.top="230px";
+    
+    var ul1=document.getElementsByTagName("ul");
+    
+    btn1[4].addEventListener('click',()=>{
+        div4[0].style.border="2px solid black";
+       var div3=document.getElementsByClassName("bigbox2");
+       div3[0].innerHTML="";
+       div3[0].style.display="none";
+
+       var div14=document.getElementsByClassName("smallbox3")
+       div14[0].innerHTML="";
+       div14[0].style.display="none";
+     var div1=document.getElementsByClassName("bigbox");
+            div1[0].innerHTML="";
+            div1[0].style.border="0px";
+            div12=document.getElementsByClassName("smallbox1");
+            div12[0].innerHTML="";
+            div12[0].style.border="0px";
+    var div2=document.getElementsByClassName("bigbox1");
+            div2[0].innerHTML="";
+            div2[0].style.display="none";
+           var div13=document.getElementsByClassName("smallbox2");
+            div13[0].innerHTML="";
+            div13[0].style.display="none";
+       
+arr.filter((val,ind,arr)=>{
+    if(val.category== "electronics"){
+             var li1=document.createElement("li");
+             li1.innerText=val.id;
+             ul1[0].appendChild(li1);
+            
+             var li2=document.createElement("li");
+             li2.innerText=val.title;
+             ul1[0].appendChild(li2);
+
+             var li3=document.createElement("li");
+             li3.innerText=val.category;
+             ul1[0].appendChild(li3);
+
+             var li4=document.createElement("li");
+             li4.innerText=val.price;
+             ul1[0].appendChild(li4);
+
+             var li5=document.createElement("li");
+             li5.innerText=val.description;
+             ul1[0].appendChild(li5);
+        
+             var imgg=document.createElement("img");
+             imgg.setAttribute("src",val.image);
+             ul1[0].appendChild(imgg);
+             imgg.style.width="100px";
+
+             var hr=document.createElement("hr");
+            ul1[0].appendChild(hr)
+
+            div4[0].appendChild(ul1[0]); 
+
+            
+            div15=document.getElementsByClassName("smallbox4");
+            div15[0].style.width="334px";
+            div15[0].style.height="1530px";
+            div15[0].style.position="absolute";
+            div15[0].style.top="230px";
+            div15[0].style.left="1020px";
+            div15[0].style.border="2px solid black";
+
+            var btn11=document.createElement("button");
+    btn11.innerText="SEE MORE";
+    btn11.style.margin="120px 0px 94px 62px";
+    btn11.setAttribute("id","coloring1");
+    div15[0].appendChild(btn11);
+
+    btn11.addEventListener('click',()=>{
+    window.location.assign("./seemore.html");
+    localStorage.setItem("seemore",JSON.stringify(arr[ind]));
+ })
+
+    var btn14=document.createElement("button");
+    btn14.innerText="Add To Cart";
+    // btn12.style.margin="90px 0 50px 10px";
+    btn14.style.position="relative";
+    btn14.style.top="0px";
+    btn14.style.left="10px";
+    btn14.setAttribute("id","coloring3");
+    div15[0].appendChild(btn14);2
+
+
+    btn14.addEventListener('click',()=>{
+        let cartt=localStorage.getItem("cart");
+        cartt!=null?JSON.parse(cartt):[];
+        let cart1=cartt!=null?JSON.parse(cartt):[];
+        cart1.push(arr[ind]);
+        localStorage.setItem("cart",JSON.stringify(cart1));
+    }) 
+
+    
+    var btn15=document.createElement("button");
+    btn15.innerText="BUY NOW";
+    // btn12.style.margin="90px 0 50px 10px";
+    btn15.style.position="relative";
+    btn15.style.top="0px";
+    btn15.style.left="20px";
+    btn15.setAttribute("id","coloring2");
+    div15[0].appendChild(btn15);
+
+    btn15.addEventListener('click',()=>{
+        window.location.assign("./buynow.html");
+        localStorage.setItem("buynow",JSON.stringify(arr[ind]));
+    
+    }) 
+    
+
+}
+})
+
+    })
+
+
+    btn1[5].style.position="absolute";
+    btn1[5].style.left="550px";
+    
+    var div5=document.getElementsByClassName("bigbox4");
+    div5[0].style.width="1000px";
+    div5[0].style.position="absolute";
+    div5[0].style.top="230px";
+    
+    var ul1=document.getElementsByTagName("ul");
+    
+    btn1[5].addEventListener('click',()=>{
+        div5[0].style.border="2px solid black";
+
+       var div4=document.getElementsByClassName("bigbox3");
+       div4[0].innerHTML="";
+       div4[0].style.display="none";
+
+       var div15=document.getElementsByClassName("smallbox4")
+       div15[0].innerHTML="";
+       div15[0].style.display="none";
+       var div1=document.getElementsByClassName("bigbox");
+            div1[0].innerHTML="";
+            div1[0].style.border="0px";
+            div12=document.getElementsByClassName("smallbox1");
+            div12[0].innerHTML="";
+            div12[0].style.border="0px";
+         var div2=document.getElementsByClassName("bigbox1");
+            div2[0].innerHTML="";
+            div2[0].style.display="none";
+            var div13=document.getElementsByClassName("smallbox2");
+            div13[0].innerHTML="";
+            div13[0].style.display="none";
+            var div3=document.getElementsByClassName("bigbox2");
+       div3[0].innerHTML="";
+       div3[0].style.display="none";
+
+       var div14=document.getElementsByClassName("smallbox3")
+       div14[0].innerHTML="";
+       div14[0].style.display="none";
+    
+
+
+          
+arr.filter((val,ind,arr)=>{
+    if(val.category== "women's clothing"){
+             var li1=document.createElement("li");
+             li1.innerText=val.id;
+             ul1[0].appendChild(li1);
+            
+             var li2=document.createElement("li");
+             li2.innerText=val.title;
+             ul1[0].appendChild(li2);
+
+             var li3=document.createElement("li");
+             li3.innerText=val.category;
+             ul1[0].appendChild(li3);
+
+             var li4=document.createElement("li");
+             li4.innerText=val.price;
+             ul1[0].appendChild(li4);
+
+             var li5=document.createElement("li");
+             li5.innerText=val.description;
+             ul1[0].appendChild(li5);
+        
+             var imgg=document.createElement("img");
+             imgg.setAttribute("src",val.image);
+             ul1[0].appendChild(imgg);
+             imgg.style.width="100px";
+
+             var hr=document.createElement("hr");
+            ul1[0].appendChild(hr)
+
+            div5[0].appendChild(ul1[0]); 
+
+            
+            div16=document.getElementsByClassName("smallbox5");
+            div16[0].style.width="334px";
+            div16[0].style.height="1800px";
+            div16[0].style.position="absolute";
+            div16[0].style.top="230px";
+            div16[0].style.left="1020px";
+            div16[0].style.border="2px solid black";
+
+            var btn11=document.createElement("button");
+    btn11.innerText="SEE MORE";
+    btn11.style.margin="170px 0px 94px 62px";
+    btn11.setAttribute("id","coloring1");
+    div16[0].appendChild(btn11);
+
+    btn11.addEventListener('click',()=>{
+    window.location.assign("./seemore.html");
+    localStorage.setItem("seemore",JSON.stringify(arr[ind]));
+ })
+
+    var btn14=document.createElement("button");
+    btn14.innerText="Add To Cart";
+    // btn12.style.margin="90px 0 50px 10px";
+    btn14.style.position="relative";
+    btn14.style.top="0px";
+    btn14.style.left="10px";
+    btn14.setAttribute("id","coloring3");
+    div16[0].appendChild(btn14);2
+
+     btn14.addEventListener('click',()=>{ 
+        let cartt=localStorage.getItem("cart");
+        cartt!=null?JSON.parse(cartt):[];
+        let cart1=cartt!=null?JSON.parse(cartt):[];
+        cart1.push(arr[ind]);
+        localStorage.setItem("cart",JSON.stringify(cart1));
+    }
+) 
+
+    
+    var btn15=document.createElement("button");
+    btn15.innerText="BUY NOW";
+    // btn12.style.margin="90px 0 50px 10px";
+    btn15.style.position="relative";
+    btn15.style.top="0px";
+    btn15.style.left="20px";
+    btn15.setAttribute("id","coloring2");
+    div16[0].appendChild(btn15);
+
+    btn15.addEventListener('click',()=>{
+        window.location.assign("./buynow.html");
+        localStorage.setItem("buynow",JSON.stringify(arr[ind]));
+    
+    }) 
+    
+
+}
+})
+
+   })
+
+
+    
+
+
+    btn1[2].style.position="absolute";
+    btn1[2].style.left="1130px";
+
+
+    btn1[2].addEventListener('click',()=>{
+        window.location.assign("./cart.html");
+    }) 
+
+    var logoutbtn=document.getElementById("logout");
+    logoutbtn.addEventListener('click',()=>{
+        window.location.assign("./login.html")
+    })
+</script>
+</body>

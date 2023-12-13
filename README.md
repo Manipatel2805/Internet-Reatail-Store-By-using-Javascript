@@ -1,2 +1,0 @@
-# retailstore
-InternetRetailStore

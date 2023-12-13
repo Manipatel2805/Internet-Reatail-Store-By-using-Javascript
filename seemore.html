@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: rgb(157, 223, 223);text-align: center;font-size: 25px;"> 
+    <div class="big">
+    <div class="m"></div>
+    <br>
+    <div class="m"></div>
+    <br>
+    <div class="m"></div><br>
+    <div class="m"></div><br>
+    <div class="m"></div><br>
+</div>
+    <button></button>
+    <script>
+
+        var btn1=document.getElementsByTagName("button");
+        btn1[0].innerText="BACK"
+        btn1[0].style.position="absolute";
+        btn1[0].style.top="10px";
+        btn1[0].style.left="660px";
+        document.body.appendChild(btn1[0]);
+        btn1[0].addEventListener('click',()=>{
+          window.location.assign("./frontpage.html");
+ })
+
+        vall=JSON.parse(localStorage.getItem("seemore"));
+        var bigg=document.getElementsByClassName("big");
+        var crt1=document.getElementsByClassName("m");
+        crt1[0].innerText=vall.id;
+        crt1[1].innerText=vall.title;
+        crt1[2].innerText=vall.category;
+        crt1[3].innerText="Price : "+vall.price;
+        crt1[4].innerText=vall.description;
+
+        var crtimg=document.createElement("img");
+        crtimg.setAttribute("src",vall.image);
+        crtimg.style.width="300px";
+        crtimg.style.height="300px";
+        bigg[0].appendChild(crt1[0]);
+        bigg[0].appendChild(crt1[1]);
+        bigg[0].appendChild(crt1[2]);
+        bigg[0].appendChild(crt1[3]);
+        bigg[0].appendChild(crt1[4]);
+        bigg[0].appendChild(crtimg);
+        bigg[0].style.border="2px solid black";
+        bigg[0].style.width="500px";
+        bigg[0].style.borderRadius="15px";
+        bigg[0].style.margin="40px 0 0 440px";
+        bigg[0].style.backgroundColor="#ee82ee";
+        
+    </script>
+</body>
+</html>

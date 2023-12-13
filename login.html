@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #coloring{color:red}
+    </style>
+    
+</head>
+<body style="background-image: url(./log.jpg);background-repeat: no-repeat;background-size: cover;">
+    <h1 style="margin-top: 100px;margin-left: 650px;color: rgb(10, 10, 10);">LOGIN</h1>
+     <div style="border: 2px solid black;width: 350px;text-align: center;padding: 40px;margin-top:50px;margin-left: 490px;border-radius: 14px;background-color: rgb(214, 221, 221);">
+    <form action="">
+        <b>Username</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="hello"><br> <br> <br>
+        <b>Password</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="hello1"> <br> <br> <br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="Login" style="padding: 8px 14px;background-color: blueviolet;"> <br> <br>
+    
+    </form>
+</div>
+    <script>
+    
+
+     var login1=localStorage.getItem("regist");
+     login1==null?login1=[]:login1=JSON.parse(login1);
+        
+        
+        formss=document.forms;
+        formss[0].addEventListener('submit',(e)=>{
+            e.preventDefault();
+            Username=e.target[0].value;
+            Password=e.target[1].value;
+            let d=login1.find((val,ind,arr)=>{
+               return Username==val.username && Password==val.password; 
+               })
+               if(d){
+                window.location.assign("./frontpage.html");
+               }
+               else{
+                var divv1=document.getElementsByTagName("div");
+                var p1=document.createElement("p");
+                p1.innerText="Username or Password is wrong";
+                p1.style.color="red";
+                p1.style.position="absolute";
+                p1.style.top="140px";
+                p1.style.left="566px";
+                divv1[0].appendChild(p1);
+               }
+
+        })
+
+    </script>
+
+
+</body>
+</html>

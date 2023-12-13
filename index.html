@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #coloring{color: red;position: absolute;top: 130px;left: 555px;}
+    </style>
+</head>
+<body style="background-image: url(./reg.jpg);background-repeat: no-repeat;background-size: cover;" >
+    <h1 style="margin-top: 100px;margin-left: 320px;color: rgb(10, 10, 9);">User Register</h1>
+    <div style="border: 2px solid black;width: 350px;text-align: center;padding: 40px;margin-top:50px;margin-left: 195px;border-radius: 14px;background-color: rgb(123, 145, 145);">
+        <form action="">
+            <b>Username</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="hello"><br> <br> <br>
+            <b>Password</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="hello1"> <br> <br> <br>
+            <b>Confirm-Password</b> : <input type="text" id="hello2"><br> <br> <br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="Register" style="padding: 6px 15px;background-color: rgb(226, 226, 226)"> <br> <br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" value="Reset" id="rst" style="padding: 6px 15px;background-color: rgb(226, 226, 226)">
+        </form>
+<script>
+
+    let login1=[];
+    var formss=document.forms;
+    
+    formss[0].addEventListener('submit',(e)=>{
+    e.preventDefault()
+    username=e.target[0].value
+    password=e.target[1].value 
+    password1=e.target[2].value
+    if(username[0].toUpperCase()==username[0] && username.length>=10 && password.length>=10 && password==password1){
+        for(i=0;i<password.length;i++){
+            if(password[i].toString!=password[i]){
+            window.location.assign("./login.html");
+
+            }
+        else{
+            var p1=document.createElement("p");
+        p1.innerText="Enter Correct Username Or Password";
+        p1.setAttribute("id","coloring");
+        document.body.appendChild(p1);
+        }
+       
+    }
+     }
+    else{
+        var p2=document.createElement("p");
+        p2.innerText="Enter Correct Username Or Password";
+        p2.setAttribute("id","coloring");
+        document.body.appendChild(p2);
+
+    }
+
+         let login=localStorage.getItem("regist");
+        //  console.log(typeof login);
+        // login!=null?JSON.parse(login):[];
+        let login1=login!=null?JSON.parse(login):[];
+        login1.push({username:username,password:password});
+        localStorage.setItem("regist",JSON.stringify(login1));
+
+
+    e.target[0].value="";
+    e.target[1].value="";
+    e.target[2].value="";
+    })
+
+    var resett=document.getElementById("rst");
+    resett.addEventListener('click',()=>{
+        var input1=document.getElementById("hello");
+        var input2=document.getElementById("hello1");
+        var input3=document.getElementById("hello2");
+        input1.value="";
+        input2.value="";
+        input3.value="";
+    })
+    
+
+
+</script>
+
+    </div>
+
+</body>
+</html>

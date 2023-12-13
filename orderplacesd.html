@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+     
+    </style>
+</head>
+<body style="background-color: rgb(8, 8, 8);">
+    <div style="background-color: rgb(76, 219, 119);display: grid;align-items: center;width: 650px;border-radius:10px;height: 100px;font-size: 40px;margin: 200px 0px 0px 340px;">
+    Your order has been placed successfully
+</div>
+    <script>
+        var botn=document.createElement("button");
+        botn.innerText="Back";
+        botn.style.position="absolute";
+        botn.style.left="650px";
+        botn.style.top="340px";
+        document.body.appendChild(botn);
+
+        botn.addEventListener('click', ()=>{
+            window.location.assign("./frontpage.html");
+        })
+
+    </script>
+</body>
+</html>

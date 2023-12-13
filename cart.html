@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+/* #coloring{position: absolute;top: 420px;left: 800px;} */
+.q{text-align: center;}
+.quantity{width: 1350px;background-color: aqua;}
+</style>
+
+</head>
+<body style="background-color: antiquewhite;">
+        <button style="background-color: blue;margin:30px 0 0 300px;padding: 10px;">CLEAR ALL</button>
+    <button style="background-color: blue;margin: 30px 0 0 100px;padding: 10px;">Quantity</button>
+<button style="background-color: rgb(51, 162, 170);margin: 30px 0 0 100px;padding: 10px;">Order Confirm</button>
+<div class="q"></div>  
+<div class="quantity"></div>
+  
+    <script>
+
+  var btn=document.getElementsByTagName("button");
+    btn[0].addEventListener('click',()=>{
+        localStorage.clear();
+        window.location.reload();
+        
+    })
+   
+
+    var carttt=localStorage.getItem("cart");
+    carttt==null?carttt=[]:carttt=JSON.parse(carttt);
+
+    btn[1].innerText="Qty:"+carttt.length;
+
+    c=0;
+    carttt.map((val,ind,arr)=>{
+       
+        for(i=0;i<carttt.length;i++){
+            c+=val["price"];
+        break;
+        }
+        console.log(c);
+        
+    })
+    var price=document.getElementsByClassName("q");
+    var h11=document.createElement("h1")
+    h11.innerText="Total Price :"+c;
+    price[0].appendChild(h11);
+
+
+  
+    a=[];
+    carttt.map((val,ind,arr)=>{
+      var divvv1=document.getElementsByClassName("quantity");
+      var divvv=document.createElement("div");
+        divv=document.createElement("div");
+      divv.style.width="375px";
+      divv.style.height="425px";
+      divv.style.backgroundColor="#E6E6FA"
+      divv.style.margin="50px 0 20px 50px";
+      divv.style.border="1px solid black";
+      divv.style.borderRadius="15px";
+      divv.style.textAlign="center";
+        d=val.id;
+        a.push(d);
+        var a1=document.createElement("p")
+        a1.innerText="Item No:"+val.id;
+        divv.appendChild(a1);
+
+        var img=document.createElement("img");
+        img.setAttribute("src",val.image);
+        img.style.width="250px";
+        img.style.height="250px";
+        divv.appendChild(img);
+        
+        var a2=document.createElement("p")
+        a2.innerText=val.category;
+        divv.appendChild(a2);
+
+        var a3=document.createElement("p")
+        a3.innerText="Price : "+val.price;
+        divv.appendChild(a3);
+
+        var rembtn=document.createElement("button");
+        rembtn.innerText="Remove";
+        rembtn.style.padding="8px";
+        divv.appendChild(rembtn);
+        rembtn.addEventListener('click',()=>{
+          divvv.style.display="none";
+          
+  
+        })
+
+
+        divvv.appendChild(divv);
+        divvv.style.display="flex";
+        divvv.style.float="left";
+        divvv1[0].appendChild(divvv); 
+
+
+})
+console.log(a);
+b={};
+for (i of a){
+  if (b[i]) {
+    b[i]++;
+  } else {
+    b[i] = 1;
+  }
+}
+console.log(b);
+d=Object.keys(b);
+console.log(d);
+var divvv=document.getElementsByClassName("q");
+for (i in b) {
+  var qtybtn=document.createElement("button");
+qtybtn.innerText="item No:"+i+" "+" "+"Qty :"+b[i];
+qtybtn.style.width="80px"
+divvv[0].appendChild(qtybtn);
+divvv[0].style.margin="20px 0 0 10px";
+
+qtybtn.setAttribute("id","coloring");
+}
+
+
+btn[2].addEventListener('click',()=>{
+    window.location.assign("./orderplacesd.html");
+
+})
+var btn=document.createElement("button");
+        btn.innerText="Back";
+        btn.style.position="absolute";
+        btn.style.top="38px";
+        btn.style.left="1000px";
+        btn.style.backgroundColor="black";
+        btn.style.color="white";
+        btn.style.padding="10px";
+        document.body.appendChild(btn);
+        btn.addEventListener('click',()=>{
+            window.location.assign("./frontpage.html")
+        })
+
+       
+    </script>
+</body>
+</html>

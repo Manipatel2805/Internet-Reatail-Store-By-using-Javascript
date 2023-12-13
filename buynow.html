@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #coloring{text-align: center;font-size:25px;font-weight: 10;}
+    </style>
+</head>
+<body style="background-color: rgb(170, 184, 132);">
+    <div class="m"></div>
+
+    <script>
+        
+        var btn=document.createElement("button");
+        btn.innerText="Back";
+        btn.style.backgroundColor="black";
+        btn.style.color="white";
+        btn.style.position="absolute";
+        btn.style.top="120px";
+        btn.style.left="1200px";
+        document.body.appendChild(btn);
+        btn.addEventListener('click',()=>{
+            window.location.assign("./frontpage.html")
+        })
+
+        var btn1=document.createElement("button");
+        btn1.innerText="Order Confirm";
+        btn1.style.backgroundColor="lightblue";
+        document.body.appendChild(btn1);
+        btn1.style.position="absolute";
+        btn1.style.top="120px";
+        btn1.style.left="1100px";
+        btn1.addEventListener('click', ()=>{
+            window.location.assign("./orderplacesd.html")
+        })
+
+        var carttt=localStorage.getItem("buynow");
+    console.log(carttt);
+    var val=JSON.parse(carttt);
+
+    
+    var divv=document.getElementsByClassName("m");
+    divv[0].style.border="1px solid black";
+    divv[0].style.borderRadius="15px";
+    divv[0].style.width="450px";
+    divv[0].style.backgroundColor="#E6E6FA";
+    divv[0].style.margin="30px 500px";
+    divv[0].style.textAlign="center";
+        var div1=document.createElement("p");
+        div1.innerText=val.id;
+        div1.style.marginTop="130px"
+        div1.setAttribute("id","coloring");
+        divv[0].appendChild(div1);
+
+        var div2=document.createElement("p");
+        div2.innerText=val.title;
+        div2.setAttribute("id","coloring");
+        divv[0].appendChild(div2);
+
+        var img=document.createElement("img");
+        img.setAttribute("src",val.image);
+        img.style.width="260px";
+        divv[0].appendChild(img);
+
+        var div3=document.createElement("p");
+        div3.innerText=`Price Of Item : `+val.price;
+        div3.setAttribute("id","coloring");
+        divv[0].appendChild(div3);
+
+        var div5=document.createElement("p");
+        div5.innerText=val.description;
+        div5.setAttribute("id","coloring");
+        divv[0].appendChild(div5);
+
+        var div4=document.createElement("p");
+        div4.innerText=val.category;
+        div4.setAttribute("id","coloring");
+        divv[0].appendChild(div4);
+
+        var div6=document.createElement("p");
+        div6.innerText="TOTAL PRICE  = "+val.price;
+        div6.style.textAlign="end";
+        div6.style.position="absolute";
+        div6.style.top="50px";
+        div6.style.left="1000px";
+        div6.style.fontSize="30px";
+        divv[0].appendChild(div6);
+        
+    </script>
+</body>
+</html>
